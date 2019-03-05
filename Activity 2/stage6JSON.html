@@ -7,7 +7,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Stage 5c JSON Activity</title>
+    <title>Stage 6 JSON Activity</title>
 
     <style>
         
@@ -50,8 +50,7 @@
     $.getJSON(staticUrl, function(data) {
         iw = window.innerWidth - 100;
         //console.log(iw);
-        //Whenever finding hte largest or smallest value in a list always
-        //set the values to a number in the list to start. 
+        
         countryData = data.fact[1].Value;
         loc = countryData.indexOf("[");
         val = countryData.substring(0,loc);
@@ -62,16 +61,12 @@
         len = data.fact.length;
         for (i = 0; i < len; i = i + 1) {
             countryData = data.fact[i].Value;
-            //console.log(countryData);
+   
             loc = countryData.indexOf("[");
-            //console.log(loc);
             val = countryData.substring(0,loc);
-            //console.log(val);
-            val = val.replace(/ /g,"");
-            //console.log(val);
+            val = val.replace(/ /g,"")
             val = parseInt(val);
-            //isNaN(45) --> False
-            //isNaN(NaN) --> True
+         
             
             if (isNaN(val) === false) {
                 largest = Math.max(largest,val);
