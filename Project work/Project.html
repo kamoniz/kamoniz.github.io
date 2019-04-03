@@ -4,7 +4,10 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset = "UTF-8" />
+
 <style>
 
 body {
@@ -13,7 +16,7 @@ body {
   font-family: Poppins, sans-serif;
 }
 
-.GreenParagraph {
+.GreenParagraph, .slideshow {
   border: 2px solid black;
   outline: #4CAF50 solid 10px;
   margin: auto;  
@@ -21,13 +24,14 @@ body {
   text-align: center;
 }
 
-.GreenToronto {
-  border: 2px solid black;
-  outline: #4CAF50 solid 10px;
-  margin: auto;  
-  padding: 20px;
-  text-align: center;
+.slideshow {
+
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
 }
+
 
 
 .Greenspaces {
@@ -35,6 +39,7 @@ body {
   font-family: Fjalla One, sans-serif;
   text-align: center;
   font-size: 40px;
+  text-align: center;
 
 }
 
@@ -73,6 +78,7 @@ body {
 
 .topnav-right {
   float: right;
+  size: 40px;
 }
 
 /* Responsive navigation menu (for mobile devices) */
@@ -107,7 +113,7 @@ body {
   
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    
+     
     <a href="#about">Goal 2</a>
   </div>
   
@@ -116,10 +122,109 @@ body {
 
 
 <div style="padding-left:16px">
-  <h2 class="Greenspaces">The Immense Benefits of Green Spaces in Urban Areas</h2>
-  <img class="GreenToronto" src="GreenTO.jpg" alt="Green Toronto "> 
-  <p class="GreenParagraph">Toronto is a green city</p>
+  <h2 class="Greenspaces">The Benefits of Green Spaces in Urban Areas</h2>
 </div>
 
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+
+      <img src="GreenTO.jpg" style="width:100%">
+      <div class="text">Toronto is a green city</div>
+    </div>
+
+    <div class="mySlides fade">
+   
+      <img src="GreenTO.jpg" style="width:100%">
+      <div class="text">Caption Two</div>
+    </div>
+
+    <div class="mySlides fade">
+     
+      <img src="GreenTO.jpg" style="width:100%">
+      <div class="text">Caption Three</div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+<br>
+  <p class="GreenParagraph">Gibberish, alternatively jibberish, jibber, jibber-jabber, or gobbledygook, is speech that is (or appears to be) nonsense. It may include speech sounds that are not actual words,[1] or language games and specialized jargon that seems nonsensical to outsiders.[2] Gibberish should not be confused with literary nonsense such as that used in the poem "Jabberwocky" by Lewis Carroll.[citation needed]
+
+"Gibberish" is also used as an imprecation to denigrate or tar ideas or opinions the user disagrees with or finds irksome, a rough equivalent of "nonsense", "falderal", or "claptrap". The implication is that the criticized expression or proposition lacks substance or congruence, as opposed to simply being a differing view.
+
+The word gibberish is more commonly applied to informal speech, while gobbledygook (sometimes gobbledegook, gobbledigook or gobbledegoo) is more often applied to writing or language that is meaningless or is made unintelligible by excessive use of abstruse technical terms.[citation needed] "Officialese", "legalese", or "bureaucratese" are forms of gobbledygook. The related word jibber-jabber refers to rapid talk that is difficult to understand.[3]
+
+
+Contents
+1 Etymology
+2 Use
+2.1 Gobbledygook
+2.2 In acting
+3 Other terms and usage
+4 See also
+5 References
+6 External links
+</p>
+  
+
+
+
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
+</script>
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+
+
+
+
 </body>
+
+
 </html>
